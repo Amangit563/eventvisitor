@@ -1,0 +1,17 @@
+
+<IfModule mod_rewrite.c>
+Options +FollowSymlinks
+RewriteEngine On
+
+# Exclude /public_path/hrtc/public/ and /public_path/hrtc/css/ folders from rewrite rules
+RewriteCond %{REQUEST_URI} !^/public/public_path/eventvisitors/
+RewriteCond %{REQUEST_URI} !^/public/public_path/eventvisitors/css/
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*)$ /public/public_path/eventvisitors/$1
+RewriteRule ^(/)?$ public/public_path/eventvisitors/index.php [L]
+</IfModule>
+
+
